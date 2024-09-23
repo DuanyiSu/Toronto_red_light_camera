@@ -1,0 +1,30 @@
+---
+title: "Understanding Toronto's Red Light Camera Data: Formats, Accessibility, and Implications for Traffic Safety"
+author: "Duanyi Su"
+date: "September 23, 2024"
+format: pdf
+---
+
+
+## Introduction
+Red light cameras play a crucial role in reducing traffic violations and enhancing road safety in urban areas. In Toronto, these cameras are installed at key intersections to monitor traffic signal compliance, serving as an effective tool for improving road safety. Analyzing the data collected from these cameras can provide valuable insights into traffic patterns, enforcement efficiency, and overall public safety. The availability of different data formats and regular updates is a testament to the city's commitment to transparency and data-driven decision-making. This paper examines the metadata of the red light camera datasets provided by Open Data Toronto, focusing on data formats, update frequencies, and their implications for data accessibility and usability.
+The remainder of this paper is organized as follows: the data section discusses the dataset's source, structure, and ethical considerations, followed by an analysis using visualizations and tables. We conclude with recommendations and suggestions for future research.
+
+
+## Data
+
+### Data Source and Context
+The dataset analyzed was sourced from Open Data Toronto's "Red Light Cameras Data" collection. It includes metadata on different file formats (GeoJSON, CSV, GPKG) and their respective update frequencies. This metadata provides insights into how the city shares traffic safety data, making it accessible to various stakeholders such as researchers, policymakers, and the general public.
+From an ethical perspective, sharing red light camera data raises concerns about privacy and surveillance. However, the benefits of improving traffic safety and compliance outweigh these concerns. The diverse data formats suggest a strong effort toward accessibility and transparency, enabling a wide range of data users to engage with the information.
+
+### Data Summary and Analysis
+The following table summarizes the metadata entries for Toronto's red light camera data:
+```{r}
+library(knitr)
+library(dplyr)
+
+# Loading the data into R and displaying it using knitr::kable
+red_light_data <- read.csv("Red Light Cameras Data - 4326.csv")
+red_light_data_summary <- red_light_data %>% select(name, format, last_modified)
+kable(red_light_data_summary, caption = "Table 1: Summary of Red Light Camera Data Metadata")
+```
