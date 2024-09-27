@@ -2,7 +2,7 @@
 # Purpose: Downloads and saves the red light camera data from Open Data Toronto
 # Author: Duanyi Su
 # Date: 27 September 2024
-# Contact: duanyi.su@example.com
+# Contact: duanyi.su@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: Install the opendatatoronto and tidyverse packages.
 
