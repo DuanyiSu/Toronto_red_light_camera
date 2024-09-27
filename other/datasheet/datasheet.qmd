@@ -3,7 +3,7 @@
 title: "Datasheet for 'Simulated Red Light Camera Data in Toronto'"
 subtitle: "An analysis of simulated data representing red light camera enforcement in Toronto"
 author: 
-  - Your Name
+  - Duanyi Su
 thanks: "Code and data are available at: [https://github.com/DuanyiSu/Toronto_red_light_camera](https://github.com/DuanyiSu/Toronto_red_light_camera)."
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
