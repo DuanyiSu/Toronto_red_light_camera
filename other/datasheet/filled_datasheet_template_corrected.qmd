@@ -1,0 +1,99 @@
+
+---
+title: "Datasheet for 'Simulated Red Light Camera Data in Toronto'"
+subtitle: "An analysis of simulated data representing red light camera enforcement in Toronto"
+author: 
+  - Your Name
+thanks: "Code and data are available at: [https://github.com/DuanyiSu/Toronto_red_light_camera](https://github.com/DuanyiSu/Toronto_red_light_camera)."
+date: "`r Sys.time()`"
+date-format: "D MMMM YYYY"
+abstract: "This datasheet provides detailed insights into a simulated dataset representing the impact of red light cameras in Toronto, Canada. The dataset includes information about the installation year, annual violation counts, and geographic coordinates for various intersections equipped with red light cameras."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+Extract of the questions from @gebru2021datasheets.
+
+**Motivation**
+
+1. *For what purpose was the dataset created? Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description.*
+    - The dataset was created to simulate the impact of red light camera installations on traffic violations across various intersections in Toronto, aiming to analyze trends over time and evaluate the effectiveness of such enforcement mechanisms.
+
+2. *Who created the dataset (for example, which team, research group) and on behalf of which entity (for example, company, institution, organization)?*
+    - This simulated dataset was generated as part of an academic exercise to evaluate and model the potential impact of red light camera enforcement on traffic violations.
+
+3. *Who funded the creation of the dataset? If there is an associated grant, please provide the name of the grantor and the grant name and number.*
+    - Not applicable, as this is a simulated dataset created for educational purposes.
+
+4. *Any other comments?*
+    - The dataset aims to approximate real-world conditions and may differ from actual recorded data.
+
+**Composition**
+
+1. *What do the instances that comprise the dataset represent (for example, documents, photos, people, countries)?*
+    - Each instance represents annual traffic violation data at an intersection monitored by a red light camera, including the installation year, violation counts, and geographic location.
+
+2. *How many instances are there in total (of each type, if appropriate)?*
+    - The dataset comprises 54 records, representing annual data from 6 intersections over a period from 2015 to 2023.
+
+3. *Does the dataset contain all possible instances or is it a sample (for example, because data instances were unavailable)?*
+    - The dataset is a simulated representation and not exhaustive. It samples intersections with varying violation trends over time.
+
+4. *What data does each instance consist of?*
+    - Each instance includes the intersection location, year of red light camera installation, year of recorded data, number of violations, latitude, and longitude.
+
+5. *Is there a label or target associated with each instance?*
+    - Yes, the 'violations' column serves as the primary measure, representing the number of recorded violations for each year.
+
+6. *Is any information missing from individual instances?*
+    - No, all instances contain complete data for each column.
+
+7. *Does the dataset contain data that might be considered sensitive in any way?*
+    - No, the dataset is simulated and does not contain any personal or sensitive information.
+
+8. *Any other comments?*
+    - None.
+
+**Collection Process**
+
+1. *How was the data associated with each instance acquired?*
+    - Data was generated using a Poisson distribution to reflect realistic trends in traffic violations over time.
+
+2. *Any other comments?*
+    - The simulation parameters aimed to mimic general trends observed in traffic enforcement data.
+
+**Uses**
+
+1. *What are the intended uses of the dataset?*
+    - To model and analyze the impact of red light cameras on traffic safety and driver behavior.
+
+2. *Is there a specific task the dataset should not be used for?*
+    - The dataset should not be used as an accurate representation of real-world traffic data, as it is purely simulated.
+
+**Distribution**
+
+1. *Will the dataset be distributed to third parties outside of the entity on behalf of which the dataset was created?*
+    - Yes, the dataset is publicly available for educational and analytical purposes.
+
+2. *Any other comments?*
+    - None.
+
+**Maintenance**
+
+1. *Who is responsible for maintaining the dataset?*
+    - As this is a simulated dataset, no ongoing maintenance is required.
+
+2. *How can the owner/curator/manager of the dataset be contacted (if applicable)?*
+    - Contact details are not applicable for this simulated dataset.
+
+**References**
+
+```bibtex
+@misc{simulated_red_light_data,
+  title = {Simulated Red Light Camera Data in Toronto},
+  author = {Generated for educational purposes},
+  year = {2024},
+  howpublished = {Generated using Python},
+}
+```
