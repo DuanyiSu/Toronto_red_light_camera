@@ -1,37 +1,32 @@
 #### Preamble ####
-# Purpose: Models... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Builds a statistical model to analyze the impact of red light camera installations on traffic violations
+# Author: Duanyi Su
+# Date: 27 September 2024
+# Contact: duanyi.su@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
-
+# Pre-requisites: Requires the 'tidyverse' and 'rstanarm' packages
 
 #### Workspace setup ####
 library(tidyverse)
 library(rstanarm)
 
 #### Read data ####
-analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
+analysis_data <- read_csv("data/analysis_data/cleaned_red_light_data.csv")
 
 ### Model data ####
-first_model <-
+red_light_model <-
   stan_glm(
-    formula = flying_time ~ length + width,
+    formula = violations ~ year_installed + latitude + longitude,
     data = analysis_data,
     family = gaussian(),
     prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
     prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
     prior_aux = exponential(rate = 1, autoscale = TRUE),
-    seed = 853
+    seed = 304
   )
-
 
 #### Save model ####
 saveRDS(
-  first_model,
-  file = "models/first_model.rds"
+  red_light_model,
+  file = "models/red_light_model.rds"
 )
-
-
