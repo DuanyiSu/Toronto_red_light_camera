@@ -1,51 +1,28 @@
-#### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
-# License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+# scripts/00-simulate_data.R
 
-
-#### Workspace setup ####
+# Load necessary libraries
 library(tidyverse)
-set.seed(853)
 
+# Set seed for reproducibility
+set.seed(304)
 
-#### Simulate data ####
-# State names
-states <- c(
-  "New South Wales",
-  "Victoria",
-  "Queensland",
-  "South Australia",
-  "Western Australia",
-  "Tasmania",
-  "Northern Territory",
-  "Australian Capital Territory"
-)
+# Simulate red light camera data
+locations <- c('Dundas St W & Bathurst St', 'Yonge St & Finch Ave', 
+               'King St W & Spadina Ave', 'Bloor St W & Keele St', 
+               'Queen St E & Carlaw Ave', 'Eglinton Ave W & Dufferin St')
+years <- 2015:2023
 
-# Political parties
-parties <- c("Labor", "Liberal", "Greens", "National", "Other")
+simulated_data <- expand.grid(location = locations, year = years) %>%
+  mutate(
+    year_installed = sample(2015:2017, nrow(.), replace = TRUE),
+    violations = ifelse(year >= year_installed, rpois(1, lambda = 1000 - 50 * (year - year_installed)), NA),
+    latitude = runif(n(), 43.6, 43.8),
+    longitude = runif(n(), -79.5, -79.3)
+  ) %>%
+  filter(!is.na(violations))
 
-# Create a dataset by randomly assigning states and parties to divisions
-analysis_data <- tibble(
-  division = paste("Division", 1:151),  # Add "Division" to make it a character
-  state = sample(
-    states,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
-  ),
-  party = sample(
-    parties,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
-  )
-)
+# Save the simulated data
+write_csv(simulated_data, "data/simulated_data/simulated_red_light_data.csv")
 
 
 #### Save data ####
